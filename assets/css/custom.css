@@ -1,0 +1,76 @@
+::-webkit-file-upload-button {
+  background-color: #6e45e2;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  font-family: "Poppins";
+  border-radius: 10px 0 0 10px;
+}
+
+input[type="file"] {
+  background-color: #202020;
+  border: none;
+  border-radius: 10px 10px 10px 10px;
+  width: 100%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  background: transparent;
+  border: none;
+}
+
+.carousel-caption {
+  top: calc(50% - 50px);
+}
+
+.pp-list li {
+  list-style: disc;
+  padding: 0;
+  margin: 0;
+}
+
+.text-italic {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #6e45e2;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: white;
+  transition: 0.5s;
+}
+
+.swiper-button-next {
+  margin-right: -40px;
+}
+.swiper-button-prev {
+  margin-left: -40px;
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #6e45e2;
+}
+
+.form-check > label {
+  color: #fff !important;
+  text-transform: none !important;
+}
+
+.form-check {
+  padding-left: 0.5rem !important;
+}
+
+.form-check.checkboxElement {
+  padding-left: 1.75rem !important;
+}
