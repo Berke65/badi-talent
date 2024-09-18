@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>For Brands</title>
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link id="colors" rel="stylesheet" href="/assets/css/style-dark.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/assets/js/modernizr.min.js"></script>
+
+   <style>
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            min-height: 95vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.199);
+            padding: 50px 30px;
+            border-radius: 10px;
+            max-width: 1600px;
+            min-height: 900px;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f6f5f7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container .form {
+            position: absolute;
+            top: 0;
+            text-align: center;
+            padding: 0 20px;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #202020;
+            transition: 0.7s ease-in-out transform;
+            overflow: hidden;
+        }
+
+        .container .form.sign-in-form {
+            left: 0;
+        }
+
+        .container .form.sign-up-form {
+            right: 0;
+        }
+
+        .container .form .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.7s ease-in-out transform;
+        }
+
+        .container .form.sign-in-form .wrapper {
+            transform: translateX(100%);
+        }
+
+        .container .sign-in-form.active .wrapper {
+            transform: translateX(0);
+        }
+
+        .container .form.sign-up-form .wrapper {
+            transform: translateX(-100%);
+        }
+
+        .container .sign-up-form.active .wrapper {
+            transform: translateX(0);
+        }
+
+        .container .form h1 {
+            font-family: "Montserrat";
+            font-size: 40px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .container .form p {
+            font-family: "Roboto";
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: capitalize;
+            line-height: 25px;
+            margin-bottom: 30px;
+        }
+
+        .container .form input {
+            display: block;
+            width: 300px;
+            margin: 0 auto;
+            margin-bottom: 15px;
+            height: 35px;
+            font-family: "Montserrat";
+            font-size: 14px;
+            padding-left: 15px;
+            border: none;
+            background-color: rgba(199, 197, 197, 0.425);
+            outline: none;
+            border-radius: 15px;
+        }
+
+        .container .form input::placeholder {
+            color: rgba(255, 255, 255, 0.658);
+        }
+        button {
+            margin-top: 1rem;
+
+        }
+
+        .overlay-container .overlay button,
+        .container .form button {
+            padding: 10px 50px;
+            border: none;
+            outline: none;
+            font-family: "Montserrat";
+            font-size: 18px;
+            background-color: #ffb000;
+            cursor: pointer;
+            color: #f6f5f7;
+            border-radius: 15px;
+        }
+
+        .container .overlay-container {
+            position: absolute;
+            background-color: #ffb000;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            transition: 0.7s ease-in-out transform;
+        }
+
+        .container .overlay-container .overlay {
+            background-image: url(assets/img/logo/badi-form-logo.png);
+            background-size: cover;
+            background-position: center center;
+            position: absolute;
+            left: 0%;
+            /* background-color: rebeccapurple; */
+            width: 200%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            transition: 0.7s ease-in-out transform;
+            z-index: 1;
+        }
+
+        .container .overlay::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: #ffb000;
+            z-index: -1;
+            opacity: 0.9;
+        }
+
+        .overlay-container .overlay .overlay-left,
+        .overlay-container .overlay .overlay-right {
+            flex-basis: 50%;
+            text-align: center;
+        }
+
+        .overlay-container .overlay .overlay-left {}
+
+        .overlay-container .overlay h1 {
+            font-family: "Montserrat";
+            font-size: 40px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .overlay-container .overlay p {
+            color: white;
+            font-family: "Roboto";
+            font-size: 25px;
+            font-weight: 300;
+        }
+
+        .overlay-container .overlay button {
+            background-color: white;
+            color: #ffb000;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+
+        /* ********************* */
+        /* This Code is for only the floating card in right bottom corner */
+        /* ********************** */
+
+        @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: var(--color-4);
+            text-decoration: none;
+        }
+
+        #webCifar-sidebox {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            overflow-x: clip;
+            width: 300px;
+        }
+
+        #webCifar {
+            --color-1: #17bcb4;
+            --color-2: #24252a;
+            --color-3: #244044;
+            --color-4: #f3f8f7;
+            background: var(--color-2);
+            display: inline-block;
+            color: var(--color-4);
+            padding: 10px 17px;
+            border-radius: 6px;
+            font-family: "Roboto Mono", monospace;
+            text-align: center;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            -webkit-transform: translateX(calc(100% + 5px));
+            transform: translateX(calc(100% + 5px));
+            -webkit-transition: 0.5s ease-out transform;
+            transition: 0.5s ease-out transform;
+            z-index: 4;
+        }
+
+        #webCifar.active {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        #webCifar .logo {
+            font-size: 25px;
+        }
+
+        #webCifar .author {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        #webCifar .author span {
+            background-color: var(--color-3);
+            padding: 3px;
+            border-radius: 4px;
+        }
+
+        #webCifar .items {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: start;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        #webCifar .item {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 5px;
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        #webCifar .item:hover {
+            background-color: var(--color-3);
+        }
+
+        #webCifar svg {
+            max-width: 20px;
+        }
+
+        #webCifar .close {
+            position: absolute;
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            right: 5px;
+            top: 5px;
+            padding: 5px;
+            background-color: var(--color-3);
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #webCifar-icon {
+            --color-2: #24252a;
+            --color-3: #244044;
+            font-family: "Roboto Mono", monospace;
+            text-align: left;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            background-color: var(--color-2);
+            color: white;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+            padding: 5px;
+            border-radius: 4px;
+            gap: 5px;
+            margin: 5px;
+            cursor: pointer;
+            z-index: 1;
+            position: relative;
+            right: -27%;
+        }
+
+        #webCifar-icon svg {
+            max-width: 20px;
+        }
+
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+
+
+    </style>
+    
+
+</head>
+
+
+    
+
+<body data-spy="scroll" data-offset="170" data-target=".navigation-area">
+    <div class="page-wrapper">
+        <header class="site-header header-style-two" style="background-color: #202020;">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="navigation-area">
+                            <div class="site-branding">
+                                <a href="/"><img class="logo-dark" src="/assets/img/global/Logo-Dark.png" width="60px" alt="Site Logo"><img class="logo-white" src="/assets/img/global/Logo-Light.png" width="60px" alt="Site Logo"></a>
+                            </div>
+                            <div class="site-navigation">
+                                <nav class="navigation">
+                                    <div class="menu-wrapper">
+                                        <div class="menu-content">
+                                            <ul class="mainmenu">
+                                                <li><a class="nav-link" href="/">Anasayfa</a></li>
+                                                <li><a class="nav-link" href="/about-us">Hakkımızda</a></li>
+                                                <li><a class="nav-link" href="/talents">Talents</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="header-navigation-right">
+                                <div class="btn-sign-area"><a class="btn btn-primary rounded-pill" href="/contact-us">İletişim</a></div>
+                                <div class="hamburger-menus"><span></span><span></span><span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-sidebar-menu sidebar-menu">
+                <div class="overlaybg"></div>
+            </div>
+        </header>
+        <div class="active" id="sticky-header"></div>
+        <div class="frontpage-banner-section frontpage-banner-style-three page-inner-block">
+            <div class="element-group">
+                <div class="element one"></div>
+                <div class="element two"></div>
+            </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-md-6">
+                        <div class="frontpage-banner-content">
+                            <h2 class="hero-title w-800 aos-item" data-aos="fade-left" data-aos-duration="300" data-aos-once="true">For Brands</h2>
+                            <div class="hero-desc aos-item" data-aos="fade-left" data-aos-duration="400" data-aos-once="true">
+                                <p>We are influencer agency that we are creating awsome content with awesome influencers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 offset-lg-1 col-md-6">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5 col-6">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12"><img class="radius-4 aos-item" data-aos="fade-right" data-aos-duration="500" data-aos-once="true" src="/assets/img/pages/1.png" alt="Thumb"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-6"><img class="radius-4 aos-item" data-aos="fade-left" data-aos-duration="600" data-aos-once="true" src="/assets/img/pages/2.png" alt="Thumb"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+         <section>
+            <div class="container">
+                <div class="form sign-in-form">
+                    <div class="wrapper">
+                        <form action="send_mail_brands.php" method="POST">
+                            <h1>Markalar</h1>
+                        
+                            <div class="form-group">
+                                <label for="ad">Adınız Soyadınız</label>
+                                <input type="text" id="ad" placeholder="" required>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label for="email">İş E-Posta Adresiniz</label>
+                                <input type="email" id="email" placeholder="" required>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label for="inf">Daha önce influencer marketing çalışması yaptınız mı? *</label>
+                                <select id="inf">
+                                    <option value="" disabled selected>Seçiniz</option>
+                                    <option value="evet">Evet</option>
+                                    <option value="hayir">Hayır</option>
+                                </select>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label for="yil">Yıllık influencer marketing bütçeniz hangi aralıklarda? *</label>
+                                <select id="yil">
+                                    <option value="" disabled selected>Seçiniz</option>
+                                    <option value="0 TL-50.000 TL">0 TL-50.000 TL</option>
+                                    <option value="50.000 TL - 250.000 TL">50.000 TL - 250.000 TL</option>
+                                    <option value="250.000 TL - 750.000 TL">250.000 TL - 750.000 TL</option>
+                                    <option value="750.000 TL - 1.000.000 TL">750.000 TL - 1.000.000 TL</option>
+                                    <option value="1.000.000 TL +">1.000.000 TL ve üzeri</option>
+                                </select>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label for="yil">Hedef kitlemiz aşağıdakilerden hangisi veya hangileridir? *</label>
+                                <select id="yil">
+                                    <option value="" disabled selected>Seçiniz</option>
+                                    <option value="13 - 17">13 - 17</option>
+                                    <option value="18 - 24">18 - 24</option>
+                                    <option value="25 - 34">25 - 34</option>
+                                    <option value="35 - 44">35 - 44</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Belirtmek istediğiniz notlar</label>
+                                <textarea name="message" id="message" rows="4" style="border-radius: 5px;"></textarea>
+                            </div>
+
+                            <button type="submit">Başvur</button>
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="form sign-up-form active">
+                    <div class="wrapper">
+                        <form action="send_mail_inf.php" method="POST">
+                            <h1>İnfluencerlar</h1>
+                            <div class="col-lg-10 col-md-10">
+                                <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="isim">İsim *</label>
+                                        <input type="text" class="form-control" id="isim" placeholder="" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="soyisim">Soyisim *</label>
+                                        <input type="text" class="form-control" id="soyisim" placeholder="" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" class="form-control" id="email" placeholder="" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="tel">Telefon *</label>
+                                        <input type="number" class="form-control" id="tel" placeholder="" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="insta">Instagram Hesabı</label>
+                                        <input type="text" class="form-control" id="insta" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="yt">Youtube Hesabı</label>
+                                        <input type="text" class="form-control" id="yt" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="tw">Twitter Hesabı</label>
+                                        <input type="text" class="form-control" id="tw" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="tiktok">Tiktok Hesabı</label>
+                                        <input type="text" class="form-control" id="tiktok" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="twitch">Twitch Hesabı</label>
+                                        <input type="text" class="form-control" id="twitch" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="diger">Diğer</label>
+                                        <input type="text" class="form-control" id="diger" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                            <div class="form-group">
+                                <label for="message">Kendiniz Hakkında Bilgi Paylaşın</label>
+                                <textarea name="message" id="message" class="form-control" rows="4" style="border-radius: 5px;"></textarea>
+                            </div>
+                        </div>
+                            <button type="submit" class="btn btn-primary">Başvur</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-left">
+                            <h1>Marka Başvuru</h1>
+                            
+                            <button id="signInButton">Markalar</button>
+                        </div>
+                        <div class="overlay-right">
+                            <h1>İnfluencer Başvuru</h1>
+                            
+                            <button id="signUpButton">İnfluencerlar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <script>
+            const signIn = document.querySelector("#signInButton");
+            const signUp = document.querySelector("#signUpButton");
+            const signInForm = document.querySelector(".container .sign-in-form");
+            const signUpForm = document.querySelector(".container .sign-up-form");
+            const overlay_container = document.querySelector(
+                ".container .overlay-container"
+            );
+            const overlay = document.querySelector(
+                ".container .overlay-container .overlay"
+            );
+    
+            signIn.addEventListener("click", () => {
+                overlay_container.style.transform = "translateX(100%)";
+                overlay.style.transform = "translateX(-50%)";
+                signInForm.classList.add("active");
+                signUpForm.classList.remove("active");
+            });
+            signUp.addEventListener("click", () => {
+                overlay_container.style.transform = "translateX(0)";
+                overlay.style.transform = "translateX(0)";
+                signUpForm.classList.add("active");
+                signInForm.classList.remove("active");
+            });
+    
+    
+        </script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <footer class="site-footer style-one">
+            <div class="footer-bottom-area style-one">
+                <div class="container">
+                    <div class="footer-copyright">
+                        <div class="row align-items-center">
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-12 aos-item" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+                                <div class="footer-copyright-text md-txt-left lg-txt-left xs-txt-center sm-txt-center">
+                                    <p>&copy; 2023 <span class="color-primary">51 Digital</span>, All Right Reserved.</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 col-lg-7 col-md-7 col-12 aos-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="true">
+                                <div class="footer-copyright-nav md-txt-right lg-txt-right xs-txt-center sm-txt-center md-mrt-0 xs-mrt-20 sm-mrt-20"><a href="#">Support</a><a href="/privacy-policy">Privacy policy</a><a href="#">Terms and conditions</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-copyright-logo-area">
+                        <div class="row align-items-center">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-12 aos-item" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
+                                <div class="footer-copyright-logo mrt-30 md-txt-left lg-txt-left xs-txt-center sm-txt-center">
+                                    <a href="#"><img src="/assets/img/global/Logo-Light.png" style="width: 60px!important;" alt="Logo"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8 col-12 aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+                                <div class="footer-copyright-social md-txt-right lg-txt-right xs-txt-center sm-txt-center md-mrt-0 mrt-30"><a href="https://tr.linkedin.com/company/growth51" target="_blank"><i class="icofont-linkedin"></i></a><a href="https://www.instagram.com/51digital/" target="_blank"><i class="icofont-instagram"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/js/simple-scrollbar.min.js"></script>
+    <script src="/assets/js/background-parallax.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/theia-sticky-sidebar.min.js"></script>
+    <script src="/assets/js/ResizeSensor.min.js"></script>
+    <script src="/assets/js/swiper.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/packery-mode.pkgd.min.js"></script>
+    <script src="/assets/js/scrolla.jquery.min.js"></script>
+    <script src="/assets/js/odometer.min.js"></script>
+    <script src="/assets/js/parallaxie.min.js"></script>
+    <script src="/assets/js/isInViewport.jquery.js"></script>
+    <script src="/assets/js/jscolor.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
